@@ -1,0 +1,22 @@
+﻿<Window x:Class="PaintTool.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaintTool"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+	<Grid ShowGridLines="true">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="50"/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<!--これだけあればペイントツールっぽいことがとりあえずできる-->
+		<InkCanvas x:Name="inkCanvas" Grid.Column="1"/>
+		<Button x:Name="penbutton" Content="pen" Height="42" VerticalAlignment="Top" Click="penbutton_Click"/>
+		<Button x:Name="erasebutton" Content="eraser" Height="42" VerticalAlignment="Top" Margin="0,42,0,0" Click="erasebutton_Click"/>
+		<Button x:Name="clearbutton" Content="clear" Height="42" VerticalAlignment="Top" Margin="0,84,0,0" Click="clearbutton_Click"/>
+		<Button x:Name="savebutton" Content="save" Height="42" VerticalAlignment="Top" Margin="0,126,0,0" Click="clearbutton_Click"/>
+	</Grid>
+
+</Window>
