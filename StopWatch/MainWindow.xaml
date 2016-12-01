@@ -23,10 +23,10 @@
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
 			</Grid.ColumnDefinitions>
-			<Button Name="TimerStart" Content="TimerStart" Grid.Column="0">
+            <Button Name="TimerButton" Content="{Binding ButtoName}" Grid.Column="0" Click="TimerButton_Click">
 			</Button>
-			<ComboBox x:Name="HourList" Grid.Column="1"/>
-			<ComboBox x:Name="MinutesList" Grid.Column="2" />
+			<ComboBox x:Name="HourList" ItemsSource="{Binding HourList}" SelectedIndex="0" Grid.Column="1"/>
+            <ComboBox x:Name="MinutesList" ItemsSource="{Binding MinutesList}" SelectedIndex="0" Grid.Column="2" />
 		</Grid>
 	</Grid>
 </Window>
