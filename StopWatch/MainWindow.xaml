@@ -17,10 +17,16 @@
 				ScaleY="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=ActualHeight}"/>
 			</TextBlock.RenderTransform>
 		</TextBlock>
-		<Button Name="TimerStart" Content="Start" Grid.Row="1" Margin="0,0,0,-0.333" HorizontalAlignment="Left" Width="55">
-		</Button>
-		<ListBox x:Name="listBox" Margin="55,0,101.333,-0.333" Grid.Row="1"/>
-		<ListBox x:Name="listBox1" Margin="0,0,0.333,-0.333" Grid.Row="1" HorizontalAlignment="Right" Width="101"/>
-
+		<Grid ShowGridLines="True" Grid.Row="1">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+				<ColumnDefinition Width="1*"/>
+			</Grid.ColumnDefinitions>
+			<Button Name="TimerStart" Content="TimerStart" Grid.Column="0">
+			</Button>
+			<ComboBox x:Name="HourList" Grid.Column="1"/>
+			<ComboBox x:Name="MinutesList" Grid.Column="2" />
+		</Grid>
 	</Grid>
 </Window>

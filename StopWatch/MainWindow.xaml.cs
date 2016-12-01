@@ -20,6 +20,11 @@ namespace StopWatch
 	/// </summary>
 	public partial class MainWindow:Window
 	{
+		/// <summary>
+		/// 設定した時間後に通知する用のタイマー
+		/// </summary>
+		System.Windows.Threading.DispatcherTimer mTimer = new System.Windows.Threading.DispatcherTimer();
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -27,18 +32,45 @@ namespace StopWatch
 			System.Windows.Threading.DispatcherTimer timer = new System.Windows.Threading.DispatcherTimer();
 
 			timer.Tick += DispTime;
-			timer.Interval = new TimeSpan(0, 0, 0, 0, 1);	// 一秒おきにデリゲート実行
+			timer.Interval = new TimeSpan(0, 0, 0, 1);	// 一秒おきにデリゲート実行
 			timer.Start();
 
-///			testbutton
+			HourList.ItemsSource = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+			HourList.SelectedIndex = 0;
+			string[] minutes = new string[60];
+			for(int i = 0; i < minutes.Length; i++) {
+				minutes[i] = i + " Min";
+			}
+			MinutesList.ItemsSource = minutes;
+			MinutesList.SelectedIndex = 0;
 		}
 
 
 		void DispTime(object sender,EventArgs e)
 		{
-			TimeBar.Text = DateTime.Now.ToString("HH:mm:ss.ffff");
+			// senderはDispatcherTimer
+			var timer = sender as System.Windows.Threading.DispatcherTimer;
+
+			TimeBar.Text = DateTime.Now.ToString("HH:mm:ss");//.ffff");
 
 		}
-		
+
+	}
+
+
+	public class TimerSwitch
+	{
+		/// <summary>
+		/// スイッチがOnか
+		/// </summary>
+		public bool On;
+
+		/// <summary>
+		/// コンストラクタ
+		/// </summary>
+		public TimerSwitch()
+		{
+
+		}
 	}
 }
