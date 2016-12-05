@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StopWatch"
         mc:Ignorable="d"
-        Title="Watch" Height="128" Width="256">
+        Title="Watch" Height="128" Width="256"
+		MinHeight="128" MaxHeight="128"
+		MinWidth="256" MaxWidth="256"
+		Closing="ClosingWindow">
 	<Grid ShowGridLines="True">
 		<Grid.RowDefinitions>
 			<RowDefinition Height="2*"></RowDefinition>
@@ -23,7 +26,7 @@
 				<ColumnDefinition Width="1*"/>
 				<ColumnDefinition Width="1*"/>
 			</Grid.ColumnDefinitions>
-            <Button Name="TimerButton" Content="{Binding ButtoName}" Grid.Column="0" Click="TimerButton_Click">
+			<Button Name="TimerButton" Content="{Binding ButtoName}" Grid.Column="0" ToolTip="TimerStart" Click="TimerButton_Click">
 			</Button>
 			<ComboBox x:Name="HourList" ItemsSource="{Binding HourList}" SelectedIndex="0" Grid.Column="1"/>
             <ComboBox x:Name="MinutesList" ItemsSource="{Binding MinutesList}" SelectedIndex="0" Grid.Column="2" />
